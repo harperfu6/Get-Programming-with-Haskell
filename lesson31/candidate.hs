@@ -134,7 +134,9 @@ assesCandidateList candidate = do
 -- ここですごいのが，
 -- これまでのコンテキストをモナドの型制約さえあれば，モナドとして一般化できること
 -- 実行例:
--- 
+-- （IOモナド）   assesCandidate readCandidate
+-- （Maybeモナド）assesCandidate (Map.lookup 3 candidateDB )
+-- （Listモナド） assesCandidate candidates
 assesCandidate :: Monad m => m Candidate -> m String
 assesCandidate candidates = do
     candidate <- candidates
